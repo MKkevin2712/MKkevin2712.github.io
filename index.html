@@ -1,0 +1,296 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kevin Moukam Nkameni · Data Scientist – Analyse des risques</title>
+  <meta name="description" content="Portfolio de Kevin Moukam Nkameni : data science, modélisation du risque de crédit et data engineering. Recherche d'un stage de 6 mois.">
+  <meta name="author" content="Kevin Moukam Nkameni">
+  <meta property="og:title" content="Kevin Moukam Nkameni · Data Scientist – Analyse des risques">
+  <meta property="og:description" content="Scoring crédit, pipelines de données, Python, SQL, machine learning.">
+  <meta property="og:image" content="https://mkkevin2712.github.io/assets/img/scoring.png">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/style.css">
+  <script>
+    // Thème appliqué avant l'affichage pour éviter un flash
+    try {
+      const t = localStorage.getItem("theme");
+      if (t) document.documentElement.dataset.theme = t;
+    } catch (e) {}
+  </script>
+</head>
+<body>
+
+<!-- Réseaux, colonne fixe à gauche (écrans larges) -->
+<aside class="socials" aria-label="Réseaux">
+  <a href="https://www.linkedin.com/in/kevin-moukam" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.75h4V21H3zM9.5 9.75h3.8v1.6h.06c.53-1 1.83-2.06 3.77-2.06 4.03 0 4.77 2.65 4.77 6.1V21h-4v-5c0-1.2-.02-2.73-1.66-2.73-1.66 0-1.92 1.3-1.92 2.64V21h-4z"/></svg></a>
+  <a href="https://github.com/MKkevin2712" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 24 24"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1.1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 4.6 18.3 5 18.3 5c.7 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .3"/></svg></a>
+  <a href="https://www.kaggle.com/kevinnkameni" target="_blank" rel="noopener" aria-label="Kaggle"><svg viewBox="0 0 24 24"><path d="M5.5 2h3v11.2l6.3-6.9h4l-6.4 6.8 6.9 8.9h-3.9l-5-6.6-1.9 1.9V22h-3z"/></svg></a>
+  <a href="mailto:kevinnkameni@gmail.com" aria-label="E-mail"><svg viewBox="0 0 24 24"><path d="M3 5h18a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1zm9 7.2L4 7.3V17h16V7.3z"/></svg></a>
+</aside>
+
+<!-- Barre de navigation flottante -->
+<nav class="dock" aria-label="Navigation">
+  <a href="#accueil" class="brand">Kevin<span>.</span></a>
+  <div class="dock-links">
+    <a href="#apropos">À propos</a>
+    <a href="#projets">Projets</a>
+    <a href="#competences">Compétences</a>
+    <a href="#parcours">Parcours</a>
+    <a href="#contact">Contact</a>
+  </div>
+  <button class="icon-btn" id="theme-toggle" aria-label="Changer de thème" title="Mode clair / nuit">
+    <svg class="moon" viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+    <svg class="sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4.5"/><path d="M12 1.5v2.5M12 20v2.5M1.5 12H4M20 12h2.5M4.6 4.6l1.8 1.8M17.6 17.6l1.8 1.8M4.6 19.4l1.8-1.8M17.6 6.4l1.8-1.8" stroke-width="2" stroke-linecap="round"/></svg>
+  </button>
+  <button class="icon-btn menu-btn" id="menu-toggle" aria-label="Ouvrir le menu" aria-expanded="false">
+    <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7.5" height="7.5" rx="1.5"/><rect x="13.5" y="3" width="7.5" height="7.5" rx="1.5"/><rect x="3" y="13.5" width="7.5" height="7.5" rx="1.5"/><rect x="13.5" y="13.5" width="7.5" height="7.5" rx="1.5"/></svg>
+  </button>
+</nav>
+
+<main>
+
+  <!-- ===== Accueil ===== -->
+  <section id="accueil" class="hero container">
+    <div class="hero-text reveal">
+      <p class="eyebrow">Bonjour, je suis</p>
+      <h1>Kevin Moukam Nkameni</h1>
+      <p class="role">Data Scientist · Analyse des risques</p>
+      <p class="lead">Économètre de formation devenu data scientist, je construis des modèles de risque de crédit
+        <strong>de la donnée brute jusqu'à la décision</strong>. En DU Big Data, Data Science et Analyse des Risques
+        à l'Université de Montpellier, je recherche un <strong>stage de 6 mois</strong>.</p>
+      <div class="cta">
+        <a href="#projets" class="btn btn-primary">Voir mes projets
+          <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <a href="assets/CV_Kevin_Moukam_Nkameni.pdf" class="btn btn-ghost" download>Télécharger mon CV</a>
+      </div>
+    </div>
+    <div class="hero-photo reveal">
+      <div class="blob">
+        <img src="assets/img/photo.jpg" alt="Photo de Kevin Moukam Nkameni" onerror="this.remove()">
+        <span class="initials" aria-hidden="true">KM</span>
+      </div>
+      <div class="badge-float">
+        <span class="dot"></span> Recherche un stage de 6 mois
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Chiffres clés ===== -->
+  <section class="container stats reveal" aria-label="Chiffres clés">
+    <div class="stat"><b data-count="0.79" data-decimals="2">0,79</b><span>AUC du modèle de scoring crédit</span></div>
+    <div class="stat"><b data-count="307" data-suffix=" k">307 k</b><span>demandes de prêt modélisées</span></div>
+    <div class="stat"><b data-count="608" data-suffix=" k">608 k</b><span>ventes immobilières fiabilisées</span></div>
+    <div class="stat"><b data-count="22" data-prefix="+" data-suffix=" %">+22 %</b><span>de rentabilité de la politique d'octroi</span></div>
+  </section>
+
+  <!-- ===== À propos ===== -->
+  <section id="apropos" class="container section">
+    <header class="section-head reveal">
+      <p class="eyebrow">Qui suis-je ?</p>
+      <h2>À propos de moi</h2>
+    </header>
+    <div class="about reveal">
+      <div class="about-text">
+        <p>J'ai d'abord appris à <strong>modéliser</strong> : un Master 1 en économétrie m'a formé à la régression, aux
+          séries temporelles et à la prévision avec R et Stata. J'ai ensuite appris à <strong>construire</strong> :
+          pipelines de données, API, bases de données et mise en production.</p>
+        <p>Aujourd'hui, je réunis les deux au service de l'<strong>analyse des risques</strong> : estimer une probabilité
+          de défaut, vérifier qu'elle est fiable, l'expliquer client par client, puis en tirer une décision rentable.
+          Tous mes projets sont publics et vérifiables, avec code, tests et démonstrations en ligne.</p>
+      </div>
+      <div class="about-cards">
+        <div class="mini-card">
+          <svg viewBox="0 0 24 24"><path d="M3 3v18h18" fill="none" stroke-width="2"/><path d="M7 15l4-4 3 3 5-6" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <div><b>Modéliser</b><span>Scoring, PD, calibration, LightGBM, SHAP</span></div>
+        </div>
+        <div class="mini-card">
+          <svg viewBox="0 0 24 24"><ellipse cx="12" cy="5.5" rx="8" ry="3" fill="none" stroke-width="2"/><path d="M4 5.5v13c0 1.7 3.6 3 8 3s8-1.3 8-3v-13M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3" fill="none" stroke-width="2"/></svg>
+          <div><b>Fiabiliser les données</b><span>SQL, dbt, tests de qualité, Airflow</span></div>
+        </div>
+        <div class="mini-card">
+          <svg viewBox="0 0 24 24"><path d="M12 2l3 6.5 7 .9-5.1 4.8 1.3 7L12 17.8 5.8 21.2l1.3-7L2 9.4l7-.9z" fill="none" stroke-width="2" stroke-linejoin="round"/></svg>
+          <div><b>Livrer</b><span>API FastAPI, démos en ligne, intégration continue</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Projets ===== -->
+  <section id="projets" class="container section">
+    <header class="section-head reveal">
+      <p class="eyebrow">Mon travail</p>
+      <h2>Projets à la une</h2>
+    </header>
+
+    <article class="project reveal">
+      <a class="project-img" href="https://credit-risk-scoring-v3skumb2upo62popkvb4xs.streamlit.app/" target="_blank" rel="noopener">
+        <img src="assets/img/scoring.png" alt="Démo du modèle de scoring crédit : décision et explication SHAP" loading="lazy">
+      </a>
+      <div class="project-body">
+        <p class="project-kicker">Risque de crédit · Machine learning</p>
+        <h3>Scoring du risque de crédit</h3>
+        <p>Modèle complet sur <strong>307 000 demandes de prêt</strong> : scorecard (WoE / IV, régression logistique),
+          <strong>LightGBM (AUC 0,79)</strong> expliqué client par client avec SHAP, probabilités de défaut calibrées
+          et politique d'octroi fondée sur la marge et la LGD (<strong>+22 %</strong> de rentabilité).</p>
+        <ul class="chips"><li>Python</li><li>SQL</li><li>LightGBM</li><li>SHAP</li><li>FastAPI</li><li>Streamlit</li></ul>
+        <div class="links">
+          <a href="https://credit-risk-scoring-v3skumb2upo62popkvb4xs.streamlit.app/" target="_blank" rel="noopener">Démo</a>
+          <a href="https://github.com/MKkevin2712/credit-risk-scoring" target="_blank" rel="noopener">Code</a>
+          <a href="https://www.kaggle.com/code/kevinnkameni/credit-risk-scoring-sql-lightgbm-shap" target="_blank" rel="noopener">Kaggle</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="project reverse reveal">
+      <a class="project-img" href="https://mkkevin2712.github.io/dvf-pipeline/" target="_blank" rel="noopener">
+        <img src="assets/img/dvf.png" alt="Tableau de bord des prix de l'immobilier en France" loading="lazy">
+      </a>
+      <div class="project-body">
+        <p class="project-kicker">Data engineering · Données publiques</p>
+        <h3>Pipeline : prix de l'immobilier en France</h3>
+        <p>Chaîne de données automatisée sur les données DVF : <strong>2,3 millions de lignes brutes → 608 000 ventes
+          fiabilisées</strong>, contrôlées par <strong>25 tests dbt</strong>, orchestrées par Airflow, servies par une API
+          et un tableau de bord React. Jeu de données publié sur Kaggle.</p>
+        <ul class="chips"><li>Python</li><li>dbt</li><li>Airflow</li><li>PostgreSQL</li><li>Docker</li><li>React</li></ul>
+        <div class="links">
+          <a href="https://mkkevin2712.github.io/dvf-pipeline/" target="_blank" rel="noopener">Démo</a>
+          <a href="https://github.com/MKkevin2712/dvf-pipeline" target="_blank" rel="noopener">Code</a>
+          <a href="https://www.kaggle.com/datasets/kevinnkameni/french-housing-prices-dvf" target="_blank" rel="noopener">Dataset</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="project reveal">
+      <a class="project-img" href="https://github.com/MKkevin2712/forex-bot" target="_blank" rel="noopener">
+        <img src="assets/img/forex.png" alt="Tableau de bord du bot de trading forex" loading="lazy">
+      </a>
+      <div class="project-body">
+        <p class="project-kicker">Marchés · Gestion du risque</p>
+        <h3>Bot de trading forex</h3>
+        <p>Bot de trading algorithmique connecté à MetaTrader 5 : stratégie, <strong>gestion du risque</strong>
+          (taille de position, stop-loss), backtesting sur plusieurs années, journal des ordres, API et tableau de bord
+          React. Fonctionne en simulation, couvert par 46 tests.</p>
+        <ul class="chips"><li>Python</li><li>MetaTrader 5</li><li>FastAPI</li><li>React</li><li>SQLite</li></ul>
+        <div class="links">
+          <a href="https://github.com/MKkevin2712/forex-bot" target="_blank" rel="noopener">Code</a>
+        </div>
+      </div>
+    </article>
+  </section>
+
+  <!-- ===== Compétences ===== -->
+  <section id="competences" class="container section">
+    <header class="section-head reveal">
+      <p class="eyebrow">Ce que je maîtrise</p>
+      <h2>Compétences</h2>
+    </header>
+    <div class="skills">
+      <div class="skill-card reveal">
+        <h3>Risque de crédit</h3>
+        <ul class="chips"><li>Scorecard WoE / IV</li><li>Probabilité de défaut</li><li>Calibration</li><li>LGD</li><li>Perte attendue</li><li>Politique d'octroi</li></ul>
+      </div>
+      <div class="skill-card reveal">
+        <h3>Statistique &amp; machine learning</h3>
+        <ul class="chips"><li>Régression logistique</li><li>Économétrie</li><li>Séries temporelles</li><li>LightGBM</li><li>Optuna</li><li>SHAP</li><li>scikit-learn</li></ul>
+      </div>
+      <div class="skill-card reveal">
+        <h3>Langages</h3>
+        <ul class="chips"><li>Python</li><li>SQL</li><li>R</li><li>Stata</li><li>SAS <em>(en formation)</em></li></ul>
+      </div>
+      <div class="skill-card reveal">
+        <h3>Données</h3>
+        <ul class="chips"><li>pandas</li><li>PostgreSQL</li><li>DuckDB</li><li>dbt</li><li>Airflow</li><li>Excel (Power Query, Power Pivot)</li></ul>
+      </div>
+      <div class="skill-card reveal">
+        <h3>Mise en production</h3>
+        <ul class="chips"><li>FastAPI</li><li>Docker</li><li>Streamlit</li><li>React / TypeScript</li><li>Git &amp; GitHub Actions</li><li>pytest</li></ul>
+      </div>
+      <div class="skill-card reveal">
+        <h3>Langues</h3>
+        <ul class="chips"><li>Français : langue maternelle</li><li>Anglais : intermédiaire</li></ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Parcours ===== -->
+  <section id="parcours" class="container section">
+    <header class="section-head reveal">
+      <p class="eyebrow">Mon parcours</p>
+      <h2>Formation &amp; expérience</h2>
+    </header>
+    <ol class="timeline">
+      <li class="reveal">
+        <span class="when">2026 – 2027</span>
+        <h3>DU Big Data, Data Science et Analyse des Risques sous Python</h3>
+        <p class="where">Université de Montpellier</p>
+        <p>Cours + stage de 6 mois : Python, machine learning, analyse et modélisation des risques, big data.</p>
+      </li>
+      <li class="reveal">
+        <span class="when">2025 – 2026</span>
+        <h3>Bachelor 3 Développement et Data</h3>
+        <p class="where">INGETIS, Paris</p>
+        <p>Pipelines de données, bases de données, développement d'API.</p>
+      </li>
+      <li class="reveal">
+        <span class="when">oct. 2024 – févr. 2025</span>
+        <h3>Stagiaire Analyste junior &amp; Modélisation</h3>
+        <p class="where">TRANSRED</p>
+        <p>Analyses statistiques sur plus de 50 000 observations logistiques et financières pour évaluer la faisabilité
+          économique de projets ; veille de marché.</p>
+      </li>
+      <li class="reveal">
+        <span class="when">2023 – 2024</span>
+        <h3>Master 1 Économétrie et Politiques Économiques</h3>
+        <p>Modélisation statistique, traitement de données, prévision (R, Stata).</p>
+      </li>
+    </ol>
+  </section>
+
+  <!-- ===== Contact ===== -->
+  <section id="contact" class="container section">
+    <header class="section-head reveal">
+      <p class="eyebrow">Travaillons ensemble</p>
+      <h2>Me contacter</h2>
+    </header>
+    <div class="contact">
+      <div class="contact-cards reveal">
+        <a class="contact-card" href="mailto:kevinnkameni@gmail.com">
+          <span class="ci"><svg viewBox="0 0 24 24"><path d="M3 5h18a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1zm9 7.2L4 7.3V17h16V7.3z"/></svg></span>
+          <span><b>E-mail</b><small>kevinnkameni@gmail.com</small></span>
+        </a>
+        <a class="contact-card" href="https://www.linkedin.com/in/kevin-moukam" target="_blank" rel="noopener">
+          <span class="ci"><svg viewBox="0 0 24 24"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.75h4V21H3zM9.5 9.75h3.8v1.6h.06c.53-1 1.83-2.06 3.77-2.06 4.03 0 4.77 2.65 4.77 6.1V21h-4v-5c0-1.2-.02-2.73-1.66-2.73-1.66 0-1.92 1.3-1.92 2.64V21h-4z"/></svg></span>
+          <span><b>LinkedIn</b><small>linkedin.com/in/kevin-moukam</small></span>
+        </a>
+        <a class="contact-card" href="https://github.com/MKkevin2712" target="_blank" rel="noopener">
+          <span class="ci"><svg viewBox="0 0 24 24"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1.1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 4.6 18.3 5 18.3 5c.7 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .3"/></svg></span>
+          <span><b>GitHub</b><small>github.com/MKkevin2712</small></span>
+        </a>
+        <a class="contact-card" href="https://www.kaggle.com/kevinnkameni" target="_blank" rel="noopener">
+          <span class="ci"><svg viewBox="0 0 24 24"><path d="M5.5 2h3v11.2l6.3-6.9h4l-6.4 6.8 6.9 8.9h-3.9l-5-6.6-1.9 1.9V22h-3z"/></svg></span>
+          <span><b>Kaggle</b><small>kaggle.com/kevinnkameni</small></span>
+        </a>
+      </div>
+      <form class="contact-form reveal" id="contact-form">
+        <label>Nom<input name="nom" required autocomplete="name"></label>
+        <label>Votre e-mail<input name="email" type="email" required autocomplete="email"></label>
+        <label>Message<textarea name="message" rows="5" required></textarea></label>
+        <button class="btn btn-primary" type="submit">Envoyer le message</button>
+        <p class="form-note">Le bouton ouvre votre messagerie avec le message prêt à envoyer.</p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer class="footer container">
+  <p>© <span id="year">2026</span> Kevin Moukam Nkameni · Data Scientist – Analyse des risques</p>
+  <a href="#accueil">Retour en haut ↑</a>
+</footer>
+
+<script src="assets/main.js"></script>
+</body>
+</html>
