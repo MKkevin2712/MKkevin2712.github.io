@@ -258,3 +258,15 @@ onScroll();
     requestAnimationFrame(follow);
   })();
 })();
+
+// ---------- Liens internes : défilement sans « #section » dans l'adresse ----------
+document.querySelectorAll('a[href^="#"]').forEach((a) =>
+  a.addEventListener("click", (e) => {
+    const target = document.querySelector(a.getAttribute("href"));
+    if (!target) return;
+    e.preventDefault();
+    target.scrollIntoView({ behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" });
+    history.replaceState(null, "", location.pathname + location.search);
+  })
+);
+if (location.hash) history.replaceState(null, "", location.pathname + location.search);
