@@ -433,3 +433,14 @@ h2, .brand { font-family: "Unbounded", "Plus Jakarta Sans", sans-serif; }
   .info-card { padding: 16px 6px; }
   .info-card span { font-size: .74rem; }
 }
+
+/* Curseur personnalisé (point + anneau) */
+.cursor-dot, .cursor-ring {
+  position: fixed; left: 0; top: 0; z-index: 100; pointer-events: none; border-radius: 50%;
+}
+.cursor-dot { width: 8px; height: 8px; margin: -4px 0 0 -4px; background: var(--accent); }
+.cursor-ring {
+  width: 38px; height: 38px; margin: -19px 0 0 -19px; border: 1.5px solid var(--accent); opacity: .7;
+  transition: width .25s, height .25s, margin .25s, background .25s;
+}
+.cursor-ring.hot { width: 56px; height: 56px; margin: -28px 0 0 -28px; background: var(--glow); }
