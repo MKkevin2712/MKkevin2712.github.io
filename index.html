@@ -12,8 +12,8 @@
   <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Unbounded:wght@600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/style.css?v=4">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Unbounded:wght@600;700;800&family=Fira+Code:wght@500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/style.css?v=5">
   <script>
     // Thème appliqué avant l'affichage pour éviter un flash
     try {
@@ -38,6 +38,7 @@
   <div class="dock-links">
     <a href="#accueil">Accueil</a>
     <a href="#apropos">À propos</a>
+    <a href="#expertise">Expertise</a>
     <a href="#projets">Projets</a>
     <a href="#competences">Compétences</a>
     <a href="#parcours">Parcours</a>
@@ -59,7 +60,7 @@
     <div class="hero-text reveal">
       <p class="eyebrow">Bonjour, je suis</p>
       <h1>Kevin Moukam Nkameni</h1>
-      <p class="role">Data Scientist · Analyse des risques</p>
+      <p class="role"><span id="role-text">Data Scientist · Analyse des risques</span><span class="caret" aria-hidden="true"></span></p>
       <p class="lead">Économètre de formation devenu data scientist, je construis des modèles de risque de crédit
         <strong>de la donnée brute jusqu'à la décision</strong>. En DU Big Data, Data Science et Analyse des Risques
         à l'Université de Montpellier, je recherche un <strong>stage de 6 mois</strong>.</p>
@@ -83,6 +84,11 @@
       <svg viewBox="0 0 24 24"><path d="M12 5v14M6 13l6 6 6-6" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
     </a>
   </section>
+
+  <!-- ===== Bandeau d'indicateurs ===== -->
+  <div class="ticker" aria-label="Indicateurs de mes projets">
+    <div class="ticker-track"><span><em>AUC</em> 0,79</span><span><em>Gini</em> 0,58</span><span><em>KS</em> 0,44</span><span><em>PD calibrée</em> 8,00 % / 8,07 %</span><span><em>LGD</em> 60 %</span><span><em>Seuil d'octroi</em> PD &lt; 14,3 %</span><span><em>Score</em> 600 pts · PDO 20</span><span><em>Ventes DVF</em> 608 226</span><span><em>Tests dbt</em> 25</span><span><em>Tests pytest</em> 34 + 46</span><span><em>AUC</em> 0,79</span><span><em>Gini</em> 0,58</span><span><em>KS</em> 0,44</span><span><em>PD calibrée</em> 8,00 % / 8,07 %</span><span><em>LGD</em> 60 %</span><span><em>Seuil d'octroi</em> PD &lt; 14,3 %</span><span><em>Score</em> 600 pts · PDO 20</span><span><em>Ventes DVF</em> 608 226</span><span><em>Tests dbt</em> 25</span><span><em>Tests pytest</em> 34 + 46</span></div>
+  </div>
 
   <!-- ===== Chiffres clés ===== -->
   <section class="container stats reveal" aria-label="Chiffres clés">
@@ -129,6 +135,40 @@
         <a href="assets/CV_Kevin_Moukam_Nkameni.pdf" class="btn btn-dark" download>Télécharger mon CV
           <svg viewBox="0 0 24 24"><path d="M12 4v11M7 10l5 5 5-5M5 20h14" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
       </div>
+    </div>
+  </section>
+
+  <!-- ===== Expertise ===== -->
+  <section id="expertise" class="container section">
+    <header class="section-head reveal">
+      <p class="eyebrow">Ce que j'apporte</p>
+      <h2>Mon expertise</h2>
+    </header>
+    <div class="services">
+      <article class="service reveal">
+        <div class="service-icon"><svg viewBox="0 0 24 24"><path d="M3 3v18h18" fill="none" stroke-width="2"/><path d="M7 15l4-4 3 3 5-6" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <h3>Modélisation du risque de crédit</h3>
+        <p>Scorecards (WoE / IV), probabilités de défaut calibrées, LGD et perte attendue, grille de score et
+          politique d'octroi fondée sur la rentabilité.</p>
+        <ul class="chips"><li>PD</li><li>LGD</li><li>Scorecard</li><li>Calibration</li></ul>
+        <a class="service-link" href="#projets">Voir le projet de scoring</a>
+      </article>
+      <article class="service reveal">
+        <div class="service-icon"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7" fill="none" stroke-width="2"/><path d="M16.5 16.5L21 21" stroke-width="2" stroke-linecap="round"/><path d="M8 13v-2M11 13V8M14 13v-3" stroke-width="2" stroke-linecap="round"/></svg></div>
+        <h3>Data science &amp; analyse</h3>
+        <p>Exploration et préparation des données, modèles statistiques et machine learning, validation hors
+          échantillon et explication des décisions avec SHAP.</p>
+        <ul class="chips"><li>Python</li><li>LightGBM</li><li>SHAP</li><li>Économétrie</li></ul>
+        <a class="service-link" href="https://www.kaggle.com/kevinnkameni" target="_blank" rel="noopener">Voir mes notebooks Kaggle</a>
+      </article>
+      <article class="service reveal">
+        <div class="service-icon"><svg viewBox="0 0 24 24"><ellipse cx="12" cy="5.5" rx="8" ry="3" fill="none" stroke-width="2"/><path d="M4 5.5v13c0 1.7 3.6 3 8 3s8-1.3 8-3v-13M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3" fill="none" stroke-width="2"/></svg></div>
+        <h3>Data engineering</h3>
+        <p>Pipelines SQL et dbt testés, orchestration Airflow, bases PostgreSQL, API FastAPI et tableaux de bord
+          pour mettre les données au service de la décision.</p>
+        <ul class="chips"><li>SQL</li><li>dbt</li><li>Airflow</li><li>Docker</li></ul>
+        <a class="service-link" href="https://mkkevin2712.github.io/dvf-pipeline/" target="_blank" rel="noopener">Voir le pipeline DVF</a>
+      </article>
     </div>
   </section>
 
@@ -304,6 +344,6 @@
   <a href="#accueil">Retour en haut ↑</a>
 </footer>
 
-<script src="assets/main.js?v=4"></script>
+<script src="assets/main.js?v=5"></script>
 </body>
 </html>
