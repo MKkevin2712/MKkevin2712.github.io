@@ -55,7 +55,7 @@
 
 /* ============ Base ============ */
 * { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; scroll-padding-top: 24px; }
+html { scroll-behavior: smooth; scroll-padding-top: 96px; }
 body {
   font: 16px/1.65 "Plus Jakarta Sans", "Segoe UI", system-ui, sans-serif;
   color: var(--text);
@@ -313,4 +313,123 @@ h1, h2, h3 { line-height: 1.15; letter-spacing: -.02em; }
   .project { padding: 18px; }
   .stats { padding: 18px 10px; }
   .badge-float { left: 50%; transform: translateX(-50%); bottom: -14px; white-space: nowrap; }
+}
+
+/* =====================================================================
+   v3 : barre en haut, sphère animée, onglets du parcours (inspiration
+   portfolio Nagoloum), adaptés aux couleurs du site
+   ===================================================================== */
+h2, .brand { font-family: "Unbounded", "Plus Jakarta Sans", sans-serif; }
+.section-head { text-align: center; }
+.section-head h2 { font-weight: 700; letter-spacing: -.01em; }
+
+/* Barre de navigation en haut */
+.dock {
+  top: 16px; bottom: auto; width: min(1120px, 100% - 32px); justify-content: space-between;
+  padding: 10px 10px 10px 26px; border-radius: 22px;
+}
+.brand { font-size: 1.05rem; font-weight: 800; }
+.dock-links { margin-left: auto; margin-right: 8px; }
+.dock-links a { position: relative; background: none !important; }
+.dock-links a.active { color: var(--text); }
+.dock-links a.active::after {
+  content: ""; position: absolute; left: 50%; bottom: 2px; width: 16px; height: 3px; border-radius: 3px;
+  background: var(--accent); transform: translateX(-50%);
+}
+.hero { padding-top: 130px; position: relative; }
+
+/* Indicateur « Défiler » */
+.scroll-hint {
+  position: absolute; left: 0; bottom: 34px; display: flex; align-items: center; gap: 10px;
+  text-decoration: none; color: var(--muted); font-weight: 600; font-size: .95rem;
+}
+.scroll-hint svg { width: 16px; height: 16px; fill: none; stroke: currentColor; animation: bob 1.8s ease-in-out infinite; }
+.mouse { width: 22px; height: 34px; border: 2px solid var(--muted); border-radius: 12px; display: flex; justify-content: center; padding-top: 6px; }
+.mouse span { width: 3px; height: 7px; border-radius: 2px; background: var(--accent); animation: wheel 1.8s ease-in-out infinite; }
+@keyframes wheel { 0% { transform: translateY(0); opacity: 1; } 70% { transform: translateY(9px); opacity: 0; } 100% { opacity: 0; } }
+@keyframes bob { 50% { transform: translateY(4px); } }
+
+/* À propos */
+.about { grid-template-columns: .9fr 1.1fr; gap: 56px; align-items: center; }
+.sphere-wrap { aspect-ratio: 1; width: 100%; max-width: 460px; justify-self: center; }
+.sphere-wrap canvas { width: 100%; height: 100%; display: block; }
+.info-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-bottom: 26px; }
+.info-card {
+  display: grid; justify-items: center; text-align: center; gap: 4px; padding: 22px 12px; border-radius: 18px;
+  background: var(--surface); border: 1px solid var(--line); box-shadow: var(--shadow);
+}
+.info-card svg { width: 28px; height: 28px; fill: none; stroke: var(--accent); margin-bottom: 6px; }
+.info-card b { font-size: 1rem; }
+.info-card span { font-size: .82rem; color: var(--muted); }
+.about-text p { line-height: 1.85; }
+.availability {
+  display: flex; align-items: center; gap: 12px; margin: 22px 0; padding: 14px 18px; border-radius: 16px;
+  background: var(--surface-2); border: 1px solid var(--line); font-weight: 600; font-size: .95rem;
+}
+.availability svg { flex: none; fill: none; stroke: var(--accent); }
+.btn-dark { background: var(--text); color: var(--bg); border-color: var(--text); }
+.btn-dark:hover { transform: translateY(-2px); box-shadow: var(--shadow); }
+
+/* Onglets du parcours */
+.tabs {
+  display: flex; justify-content: center; gap: 6px; width: fit-content; margin: 0 auto 44px; padding: 6px;
+  border-radius: 999px; background: var(--surface); border: 1px solid var(--line); box-shadow: var(--shadow);
+}
+.tab {
+  display: flex; align-items: center; gap: 8px; padding: 12px 22px; border: 0; border-radius: 999px; cursor: pointer;
+  font: 600 .95rem "Plus Jakarta Sans", sans-serif; color: var(--muted); background: transparent; transition: background .25s, color .25s;
+}
+.tab svg { fill: none; stroke: currentColor; width: 18px; height: 18px; }
+.tab:hover { color: var(--text); }
+.tab.active { background: var(--accent); color: var(--accent-ink); box-shadow: 0 6px 18px var(--glow); }
+
+/* Frise en zigzag */
+.zigzag { list-style: none; position: relative; max-width: 860px; margin: 0 auto; }
+.zigzag::before { content: ""; position: absolute; left: 50%; top: 8px; bottom: 8px; width: 2px; background: var(--line); transform: translateX(-50%); }
+.zigzag li { position: relative; width: 50%; padding: 0 44px 34px 0; text-align: right; }
+.zigzag li:nth-child(even) { margin-left: 50%; padding: 0 0 34px 44px; text-align: left; }
+.zigzag li::before {
+  content: ""; position: absolute; top: 6px; right: -9px; width: 18px; height: 18px; border-radius: 50%;
+  background: var(--accent); box-shadow: 0 0 0 5px var(--glow);
+}
+.zigzag li:nth-child(even)::before { right: auto; left: -9px; }
+.zigzag h3 { font-size: 1.08rem; font-weight: 800; }
+.zigzag .where { margin-top: 4px; color: var(--muted); font-style: normal; font-weight: 500; }
+.zigzag .when { margin-top: 6px; display: inline-flex; align-items: center; gap: 6px; color: var(--accent); font-weight: 700; font-size: .9rem; }
+.zigzag .when svg { width: 15px; height: 15px; fill: none; stroke: currentColor; }
+.zigzag[hidden] { display: none; }
+.zigzag.show li { animation: rise .45s ease both; }
+.zigzag.show li:nth-child(2) { animation-delay: .08s; }
+.zigzag.show li:nth-child(3) { animation-delay: .16s; }
+@keyframes rise { from { opacity: 0; transform: translateY(14px); } }
+
+/* Bouton « remonter » */
+.to-top {
+  position: fixed; right: 24px; bottom: 24px; z-index: 25; width: 54px; height: 54px; border-radius: 16px;
+  display: grid; place-items: center; background: var(--accent); color: var(--accent-ink); box-shadow: 0 10px 26px var(--glow);
+  opacity: 0; pointer-events: none; transform: translateY(12px); transition: opacity .3s, transform .3s;
+}
+.to-top.visible { opacity: 1; pointer-events: auto; transform: none; }
+.to-top svg { fill: none; stroke: currentColor; }
+.footer { padding-bottom: 56px; }
+
+@media (max-width: 920px) {
+  .about { grid-template-columns: 1fr; }
+  .sphere-wrap { max-width: 300px; }
+  .scroll-hint { display: none; }
+}
+@media (max-width: 760px) {
+  .dock { padding-left: 18px; }
+  .dock-links { bottom: auto; top: calc(100% + 10px); margin: 0; }
+  .hero { padding-top: 110px; }
+  .zigzag::before { left: 9px; }
+  .zigzag li, .zigzag li:nth-child(even) { width: 100%; margin-left: 0; padding: 0 0 28px 40px; text-align: left; }
+  .zigzag li::before, .zigzag li:nth-child(even)::before { left: 0; right: auto; }
+  .tab { padding: 10px 14px; font-size: .88rem; }
+  .tab svg { display: none; }
+}
+@media (max-width: 560px) {
+  .info-cards { grid-template-columns: 1fr 1fr 1fr; gap: 8px; }
+  .info-card { padding: 16px 6px; }
+  .info-card span { font-size: .74rem; }
 }
