@@ -496,3 +496,5 @@ h2, .brand { font-family: "Unbounded", "Plus Jakarta Sans", sans-serif; }
 .contact-card { padding: 14px 16px; gap: 12px; }
 .contact-card small { word-break: normal; overflow-wrap: anywhere; font-size: .82rem; }
 @media (max-width: 920px) { .contact { grid-template-columns: 1fr; } }
+
+.zigzag.show li:nth-child(4) { animation-delay: .24s; }
